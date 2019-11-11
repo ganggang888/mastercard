@@ -1,6 +1,6 @@
 ## mastercard-php-sdk
 
-##### composer地址：https://packagist.org/packages/anduin/mastercard
+##### composer地址：https://packagist.org/packages/mastercard-priceless-specials-api/php
 ##### 安装方式：`composer require anduin/mastercard`
 安装后的目录结构
 ![](http://medoc.3tichina.com/Public/Uploads/2019-11-11/5dc923376dae2.png)

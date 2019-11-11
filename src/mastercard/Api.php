@@ -8,14 +8,14 @@ class Api
     private $clientID = NULL;
     private $url = NULL;
     private $list = [
-        'getLanguages'=>'/specials/api/v1/languages',
-        'getCategories'=>'/specials/api/v1/categories',
-        'getMerchants'=>'/specials/api/v1/merchants',
-        'getCountries'=>'/specials/api/v1/countries',
-        'getMastercardProducts'=>'/specials/api/v1/mastercard-products',
-        'getPrograms'=>'/specials/api/v1/programs',
-        'getBenefits'=>'/specials/api/v1/benefits',
-        'getOffers'=>'/specials/api/v1/offers',
+        'getLanguages'=>'/specials/api/languages',
+        'getCategories'=>'/specials/api/categories',
+        'getMerchants'=>'/specials/api/merchants',
+        'getCountries'=>'/specials/api/countries',
+        'getMastercardProducts'=>'/specials/api/mastercard-products',
+        'getPrograms'=>'/specials/api/programs',
+        'getBenefits'=>'/specials/api/benefits',
+        'getOffers'=>'/specials/api/offers',
         'getTags'=>'/specials/api/get_all_tags',
     ];
     

@@ -3,7 +3,6 @@
 require_once '../vendor/autoload.php';
 
 use mastercard\Api;
-use \Exception;
 
 try {
     $api = new Api('Aiken_Digital', 'https://specials.priceless.com');

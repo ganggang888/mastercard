@@ -1,0 +1,22 @@
+{
+    "name": "anduin/mastercard",
+    "description": "Mastercard Api SDK",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "anduin.zeng",
+            "email": "anduin.zeng@3ti.us"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ford\\Escape\\": "src/Ford/Escape",
+            "mastercard\\": "src/mastercard"
+        }
+    }
+}

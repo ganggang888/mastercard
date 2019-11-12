@@ -16,7 +16,7 @@ class Api
         'getPrograms'=>'/specials/api/programs',
         'getBenefits'=>'/specials/api/benefits',
         'getOffers'=>'/specials/api/offers',
-        'getTags'=>'/specials/api/get_all_tags',
+        'getTags'=>'/specials/api/get-all-tags',
     ];
     
     /**

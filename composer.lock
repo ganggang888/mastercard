@@ -4,12 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbaae0cbbd0a026cf6e075e327219bec",
-    "packages": [],
+    "content-hash": "4c70ccd3cb67b12e81811d0ae28ce598",
+    "packages": [
+        {
+            "name": "mastercard/oauth1-signer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mastercard/oauth1-signer-php.git",
+                "reference": "4ccc7579321089056fae2c967c8408187eb5945b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mastercard/oauth1-signer-php/zipball/4ccc7579321089056fae2c967c8408187eb5945b",
+                "reference": "4ccc7579321089056fae2c967c8408187eb5945b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.2",
+                "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "psr/http-message": "Allow usage of the PsrHttpMessageSigner class"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mastercard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mastercard"
+                }
+            ],
+            "description": "Zero dependency library for generating a Mastercard API compliant OAuth signature.",
+            "keywords": [
+                "oauth1",
+                "oauth1a",
+                "php"
+            ],
+            "time": "2019-05-13T08:12:43+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "mastercard/oauth1-signer": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

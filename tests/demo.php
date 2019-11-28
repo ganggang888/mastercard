@@ -3,47 +3,63 @@
 require_once '../vendor/autoload.php';
 
 use mastercard\Api;
+use Mastercard\Developer\OAuth\Utils\AuthenticationUtils;
+use Mastercard\Developer\OAuth\OAuth;
+use Mastercard\Developer\Signers\CurlRequestSigner;
+
+$signingKey = AuthenticationUtils::loadSigningKey(
+                '3ti_prd_key-production.p12',
+                '3ti_prd_key', 
+                'q1w2e3r4t5');
+$consumerKey = 'OH4q7S64RsAQAacQvT6rMgCFjhW9lfq3blaxdq95aac57d39!78ca1d91925b4c7c9088f13c1a4b51460000000000000000';
+
+
+$signer = new CurlRequestSigner($consumerKey, $signingKey);
+
+
+
+
+
 
 try {
-    $api = new Api('Aiken_Digital', 'https://specials.priceless.com');
-
+    $api = new Api('Aiken_Digital', 'https://api.mastercard.com');
+    $info = $api->getSignRequest($signer,'getLanguages');
     //getLanguages
-    $info = $api->getInfo('getLanguages');
-    //var_dump($info);
+    // var_dump($info);die;
     
 
     //getCountries
-    $getCountries = $api->getInfo('getCountries');
-    //var_dump($getCountries);
+    $getCountries = $api->getSignRequest($signer,'getCountries');
+    // var_dump($getCountries);die;
     
 
     //getCategories
     $lan = current($info['data'])['languageCode'];
 
-    $Categories = $api->getRequest('getCategories', ['language' => $lan]);
-    //var_dump($Categories);
+    $Categories = $api->getSignRequest($signer,'getCategories', ['language' => $lan]);
+    // var_dump($Categories);die;
     
 
     //getMerchants
     $array = current($Categories['data']); //获取第一个数组
-    $getMerchants = $api->getRequest('getMerchants', [
+    $getMerchants = $api->getSignRequest($signer,'getMerchants', [
         'merchant_name' => $array['categoryName'],
         'merchant_id' => $array['categoryId'],
         'country_code' => current($getCountries['data'])['countryCode'],
     ]);
-    //var_dump($getMerchants);
+    // var_dump($getMerchants);
     
     //getMastercardProducts
-    $getMastercardProducts = $api->getRequest('getMastercardProducts', ['language' => $lan]);
-    //var_dump($getMastercardProducts);
+    $getMastercardProducts = $api->getSignRequest($signer,'getMastercardProducts', ['language' => $lan]);
+    // var_dump($getMastercardProducts);
     
     //getPrograms
-    $getPrograms = $api->getRequest('getPrograms', ['language' => $lan, 'eligible_markets' => '']);
-    //var_dump($getPrograms);
+    $getPrograms = $api->getSignRequest($signer,'getPrograms', ['language' => $lan, 'eligible_markets' => '']);
+    // var_dump($getPrograms);
     
 
     //getBenefits
-    $getBenefits = $api->getRequest('getBenefits', [
+    $getBenefits = $api->getSignRequest($signer,'getBenefits', [
         'language' => '',
         'category' => '',
         'eligible_markets' => '',
@@ -57,11 +73,11 @@ try {
         'offset' => '0',
         'sort' => ''
     ]);
-    //var_dump($getBenefits);
+    // var_dump($getBenefits);
     
 
     //getOffers
-    $getOffers = $api->getRequest('getOffers', [
+    $getOffers = $api->getSignRequest($signer,'getOffers', [
         'language' => '',
         'category' => '',
         'eligible_markets' => '',
@@ -82,7 +98,7 @@ try {
     ]);
     //    var_dump($getOffers);
     //getTags
-    $getTags = $api->getRequest('getTags');
+    $getTags = $api->getSignRequest($signer,'getTags');
     var_dump($getTags);
 } catch (Exception $exc) {
     echo $exc->getMessage();
